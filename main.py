@@ -134,7 +134,7 @@ def call_gemini(history: List[dict], user_message: str) -> str:
         "systemInstruction": {
             "parts": [{"text": SYSTEM_PROMPT_TEMPLATE.format(knowledge_base=KNOWLEDGE_BASE)}]
         },
-        "generationConfig": {"temperature": 0.3, "maxOutputTokens": 500},
+        "generationConfig": {"temperature": 0.3, "maxOutputTokens": 1200},
     }
 
     url = GEMINI_URL_TEMPLATE.format(model=GEMINI_MODEL, key=GEMINI_API_KEY)
