@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skills4Future Chat Widget — Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 60px auto; padding: 0 20px; color: #222; }
+    h1 { color: #0f8a3c; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Skills4Future — Chat Widget Demo</h1>
+  <p>This page simulates the widget as it would appear embedded on skills4future.in.
+     Click the green chat bubble in the bottom-right corner.</p>
+  <p>Backend URL currently set to: <code>http://localhost:8000</code>
+     (edit the <code>data-api-url</code> attribute below to point elsewhere).</p>
+
+  <!-- Point data-api-url at your deployed backend before going live -->
+  <script src="widget.js" data-api-url="http://localhost:8000"></script>
+</body>
+</html>

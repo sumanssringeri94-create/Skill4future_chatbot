@@ -1,0 +1,143 @@
+SKILLS4FUTURE PROGRAM — KNOWLEDGE BASE
+(Compiled from skills4future.in public pages: Home, About Program, Internship, FDP, FAQs, Contact)
+
+=== PROGRAM OVERVIEW ===
+Skills4Future is a CSR initiative by Shell India Markets Private Limited, implemented by
+Edunet Foundation. It equips students and faculty with Green Skills and Artificial
+Intelligence (AI) capabilities, focused on employability and real-world, project-based
+learning. The program is offered across 4 states in India (Tamil Nadu, Karnataka,
+Maharashtra, Gujarat), with the AICTE Internship offered PAN India.
+
+The program has three tracks:
+1. Student Development Program (SDP) — Foundation course and Advanced course
+2. Shell-Edunet Skills4Future AICTE Internship
+3. Faculty Development Program (FDP)
+
+All tracks are completely FREE for eligible participants (this is a CSR initiative).
+
+=== STUDENT DEVELOPMENT PROGRAM (SDP) ===
+
+-- Foundation Course --
+Duration: 50 hours total (45 hours technical skills + 5 hours case study)
+Eligibility:
+- 17 years or older
+- Enrolled in year 2, 3, or 4 of an engineering degree in: Computer Engineering, IT,
+  Electronics & Communication, Electrical Engineering, Mechatronics, or Data Science
+- Willing to commit the required hours alongside regular academics
+- Basic computer operating/programming skills
+- Access to a computer/laptop with internet (personal or via institution)
+
+Foundation Course modules:
+1. Introduction to Green Skilling and AI — 6 hrs
+2. Learning Python and Data Visualisation for environmental applications — 14 hrs
+3. Applying Machine Learning in environmental monitoring — 10 hrs
+4. Deep Learning and Gen AI for sustainable solutions — 10 hrs
+5. AI Ethics, Fairness, and Sustainability — 5 hrs
+6. Case Study — 5 hrs
+Total: 50 hrs
+
+-- Advanced Course --
+Duration: 160 hours total (100 hrs technical skills + 20 hrs professional/employability
+skills + 40 hrs capstone project)
+Eligibility:
+- 18 years or older
+- Enrolled in pre-final or final year of engineering in: Computer Engineering, IT,
+  Electronics & Communication, Electrical Engineering, Mechatronics, or Data Science
+- Willing to pursue a career in Green Skills and AI
+- Commit the required hours alongside regular academics
+- Basic computer operating/programming skills
+- Access to a computer/laptop with internet
+
+Advanced Course modules:
+1. Foundation of Green Skilling, Sustainability and AI Contributions — 14 hrs
+2. Fundamentals of AI, Machine Learning and Python Programming — 23 hrs
+3. Applied Data Analytics with Python for Environmental Applications — 15 hrs
+4. Implementation and Deployment of ML and Deep Learning Algorithms — 20 hrs
+5. AI for Green Applications — 10 hrs
+6. Generative AI and Large Language Models (LLMs) for Sustainable Solutions — 10 hrs
+7. AI Ethics, Fairness, and Sustainability — 8 hrs
+8. Employability skills — 20 hrs
+9. Capstone project — 40 hrs
+Total: 160 hrs
+
+-- General SDP Info --
+- Training delivery: through Master Trainers at the student's own institution
+- Training mode: Hybrid (virtual/in-person)
+- Trainers: Edunet trainers with industry experience in Green Skills and AI
+- Fee: Completely free for eligible participants
+- Enrollment: Advanced course → register at skills4future.in/advanced-student-registration
+              Foundation course → register at skills4future.in/foundation-student-registration
+
+-- Certificates & Benefits (both courses) --
+- Free co-branded certificate from Shell and Edunet
+- Industry-relevant, project-based skill building
+- Mentorship from industry experts (Advanced course)
+- LMS access for continuous learning
+- Advanced course only: placement support after completion
+
+Certificate eligibility criteria:
+- Students with 70% or higher attendance qualify for the final assessment
+- Score 60% or more in final assessment → Completion Certificate
+- Score below 60% but attended → Participation Certificate
+
+Placement support (Advanced course only) requires ALL of:
+- At least 70% attendance
+- More than 60% score in assessment
+- Submission of project work
+
+=== AICTE INTERNSHIP (Shell-Edunet Skills4Future) ===
+- Purpose: Bridges the employability gap with AI + Green Skills experience
+- Cost: Completely free — no charges to participate
+- Stipend: NOT provided by the organization
+- Letter of Reference (LOR): NOT provided upon completion
+- Job guarantee: NOT guaranteed after completion
+- Class frequency: 3 times a week, fixed session timings (cannot be changed)
+- Project deadlines: Fixed — late submissions are not accepted
+- Duration: Indicative 4-week virtual internship (subject to Edunet's operational discretion)
+- Example past project areas: Energy Consumption Trend Analysis with Power BI, Indian
+  Agriculture Sector analysis with Power BI, Healthcare Prediction on Diabetic Patients
+  using Python, Waste Classification using Image Processing and Python, Air Quality
+  Index Prediction with Python
+- Value: Builds CV, provides a certificate, and builds real knowledge/skillset even
+  without a stipend or guaranteed job
+
+=== FACULTY DEVELOPMENT PROGRAM (FDP) ===
+- Purpose: Upskills faculty from AICTE-approved engineering institutions in emerging
+  tech (Green Skills + AI)
+- Eligibility: Faculty from AICTE-approved institutions in Computer Engineering, IT,
+  Electronics & Communication, Electrical Engineering, Mechatronics, or Data Science
+- Region: Only in Tamil Nadu, Karnataka, Maharashtra, and Gujarat
+- Training mode: In-person, delivered by a Master Trainer (subject matter expert) at
+  the institution
+- Duration: 20 hours, spread across 3–5 days
+- Topic: "Advanced Machine Learning with Python and Green Technologies"
+- Fee: Free (CSR initiative of Shell India and Edunet Foundation)
+- Enrollment: Register at skills4future.in/fdp-registration/batch_code
+- Certificate: Free joint certificate from Shell India and Edunet Foundation, issued
+  digitally via the Learning Management System (LMS), for faculty who qualify
+- Assessment criteria: 60% or higher attendance required to sit the final assessment.
+  Score 60%+ → Completion Certificate. Below 60% → Participation Certificate.
+- Benefits: Real-world exposure to Green Skills & AI technologies, helps bridge the
+  gap between academic learning and industry needs, empowers faculty to better
+  prepare students for the job market
+
+=== PROGRAM PARTNERS ===
+- Shell India Markets Private Limited (CSR funder/partner)
+- Edunet Foundation (implementation partner) — founded in 2015, has trained 300,000+
+  students nationally, focused on youth innovation and Industry 4.0 readiness
+
+=== CONTACT ===
+- Email: skills4future@edunetfoundation.org
+- Website contact form: skills4future.in/contact (Name, Email, Mobile, Query Topic, Message)
+- Website sections: Home, About (Student Development Program / AICTE Internship /
+  Faculty Development Program), Program Partners, Impact Stories, Capstone Stories,
+  Events (Regional Showcase), Gallery, FAQs, Contact, Login
+
+=== SCOPE / LIMITS FOR THE ASSISTANT ===
+- This assistant does NOT have access to a student's personal application status,
+  login account, or registration records — for account-specific issues, direct the
+  user to the Login page or the Contact form / email.
+- If asked something not covered in this knowledge base, say so honestly and point
+  the user to skills4future.in/contact or skills4future@edunetfoundation.org.
+- Do not guess at information not present here (e.g. exact registration deadlines or
+  seat availability) — direct users to the relevant registration page or contact email.
