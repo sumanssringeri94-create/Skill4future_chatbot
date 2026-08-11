@@ -7,9 +7,12 @@ Answers visitor questions about the Foundation/Advanced courses, eligibility,
 duration, fees, certificates, the AICTE Internship, and the Faculty Development
 Program (FDP), grounded in data/knowledge_base.txt (compiled from the live site).
 
+Uses Groq's free API (open-source Llama 3.3 70B) — fast, no per-token cost,
+generous free-tier rate limits.
+
 Run locally:
     pip install -r requirements.txt
-    cp .env.example .env      # then add your OPENAI_API_KEY
+    cp .env.example .env      # then add your GROQ_API_KEY
     uvicorn main:app --reload --port 8000
 
 Test:
@@ -35,19 +38,18 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("s4f_chatbot")
 
 # ---------------------------------------------------------------------------
-# Config — Google Gemini API (free tier)
-# Get a free key at https://aistudio.google.com/apikey (no credit card needed)
+# Config — Groq API (free tier, open-source models)
+# Get a free key at https://console.groq.com/keys (no credit card needed)
 # ---------------------------------------------------------------------------
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")  # free-tier model; check aistudio.google.com for current free models
-GEMINI_URL_TEMPLATE = (
-    "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
-)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 MAX_HISTORY_TURNS = int(os.getenv("MAX_HISTORY_TURNS", "6"))  # user+assistant pairs kept per session
 
-if not GEMINI_API_KEY:
-    logger.warning("GEMINI_API_KEY is not set — /chat will fail until it is configured in .env")
+if not GROQ_API_KEY:
+    logger.warning("GROQ_API_KEY is not set — /chat will fail until it is configured in .env")
 
 KB_PATH = Path(__file__).parent / "data" / "knowledge_base.txt"
 
@@ -119,52 +121,54 @@ def health():
     return {"status": "ok", "knowledge_base_loaded": bool(KNOWLEDGE_BASE)}
 
 
-def call_gemini(history: List[dict], user_message: str) -> str:
-    """Call the Gemini generateContent REST endpoint. Raises on failure."""
-    # Gemini uses "user"/"model" roles (not "assistant"), and history entries need
-    # to be wrapped as {"role": ..., "parts": [{"text": ...}]}
-    contents = []
-    for turn in history:
-        role = "model" if turn["role"] == "assistant" else "user"
-        contents.append({"role": role, "parts": [{"text": turn["content"]}]})
-    contents.append({"role": "user", "parts": [{"text": user_message}]})
+def call_groq(history: List[dict], user_message: str) -> str:
+    """Call the Groq chat completions endpoint (OpenAI-compatible). Raises on failure."""
+    # Groq uses the same {"role": "user"/"assistant", "content": ...} shape we
+    # already store in SESSION_STORE, so no role-conversion needed (unlike Gemini).
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT_TEMPLATE.format(knowledge_base=KNOWLEDGE_BASE)}
+    ]
+    messages.extend(history)
+    messages.append({"role": "user", "content": user_message})
 
     payload = {
-        "contents": contents,
-        "systemInstruction": {
-            "parts": [{"text": SYSTEM_PROMPT_TEMPLATE.format(knowledge_base=KNOWLEDGE_BASE)}]
-        },
-        "generationConfig": {"temperature": 0.3, "maxOutputTokens": 1200},
+        "model": GROQ_MODEL,
+        "messages": messages,
+        "temperature": 0.3,
+        "max_tokens": 1200,
+    }
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json",
     }
 
-    url = GEMINI_URL_TEMPLATE.format(model=GEMINI_MODEL, key=GEMINI_API_KEY)
-    resp = httpx.post(url, json=payload, timeout=30.0)
+    resp = httpx.post(GROQ_URL, json=payload, headers=headers, timeout=30.0)
 
     if resp.status_code != 200:
-        raise RuntimeError(f"Gemini API returned {resp.status_code}: {resp.text[:300]}")
+        raise RuntimeError(f"Groq API returned {resp.status_code}: {resp.text[:300]}")
 
     data = resp.json()
     try:
-        return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        return data["choices"][0]["message"]["content"].strip()
     except (KeyError, IndexError):
-        raise RuntimeError(f"Unexpected Gemini response shape: {data}")
+        raise RuntimeError(f"Unexpected Groq response shape: {data}")
 
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
-    if not GEMINI_API_KEY:
+    if not GROQ_API_KEY:
         raise HTTPException(
             status_code=500,
-            detail="Server is missing GEMINI_API_KEY. Set it in the .env file and restart.",
+            detail="Server is missing GROQ_API_KEY. Set it in the .env file and restart.",
         )
 
     session_id = req.session_id or str(uuid.uuid4())
     history = SESSION_STORE.get(session_id, [])
 
     try:
-        reply = call_gemini(history, req.message)
+        reply = call_groq(history, req.message)
     except Exception as e:
-        logger.exception("Gemini call failed")
+        logger.exception("Groq call failed")
         raise HTTPException(status_code=502, detail=f"Chat model error: {e}")
 
     # Update session history (trim to last N turns to control token usage)
