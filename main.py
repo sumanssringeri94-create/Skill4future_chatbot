@@ -41,7 +41,7 @@ logger = logging.getLogger("s4f_chatbot")
 # Config — Groq API (free tier, open-source models)
 # Get a free key at https://console.groq.com/keys (no credit card needed)
 # ---------------------------------------------------------------------------
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = (os.getenv("GROQ_API_KEY") or "").strip()
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
